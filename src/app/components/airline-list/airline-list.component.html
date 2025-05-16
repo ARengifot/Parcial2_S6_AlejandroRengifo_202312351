@@ -1,0 +1,9 @@
+<div class="grid">
+  <div 
+    class="card" 
+    *ngFor="let a of airlines"
+    [style.background]="a.identityColor"
+    (click)="goToDetail(a.id)">
+    <span class="name">{{ a.airlineName }}</span>
+  </div>
+</div>

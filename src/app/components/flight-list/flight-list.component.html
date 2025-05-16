@@ -1,0 +1,24 @@
+<div class="wrapper" *ngIf="airline">
+  <!-- Datos generales de la aerolínea -->
+  <div class="airline-info" [style.background]="airline.identityColor">
+    <h1>{{ airline.airlineName }}</h1>
+    <p><strong>País:</strong> {{ airline.country }}</p>
+    <p><strong>Ciudad:</strong> {{ airline.city }}</p>
+    <p><strong>Dirección:</strong> {{ airline.address }}</p>
+    <p><em>"{{ airline.slogan }}"</em></p>
+    <button (click)="goBack()">← Volver</button>
+  </div>
+
+  <!-- Lista de vuelos -->
+  <div class="flights">
+    <div class="flight-card" *ngFor="let f of airline.flights">
+      <img [src]="f.image" alt="Logo vuelo" />
+      <div class="info">
+        <p><strong>Origen:</strong> {{ f.departureCity }} ({{ f.departureAirport }})</p>
+        <p><strong>Destino:</strong> {{ f.arrivalCity }} ({{ f.arrivalAirport }})</p>
+        <p><strong>Hora:</strong> {{ f.departureTime }}</p>
+        <p><strong>Duración:</strong> {{ f.flightDuration }} hrs</p>
+      </div>
+    </div>
+  </div>
+</div>
